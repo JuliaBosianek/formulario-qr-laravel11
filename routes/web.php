@@ -1,7 +1,7 @@
 <?php
 
-use App\Http\Controllers\QRController;
+use App\Http\Controllers\QrController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [QrController::class, 'index'])->name('qr.index');
-Route::post('/generar', [QrController::class, 'generar'])->name('qr.generar');
+Route::post('/qr', [QrController::class, 'generar'])->name('qr.generar');
