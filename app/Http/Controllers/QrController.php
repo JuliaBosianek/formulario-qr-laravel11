@@ -20,12 +20,12 @@ class QrController extends Controller {
         $validados = $request->validate([
             'nombre' => ['required', 'string', 'max:50'],
             'apellidos' => ['required', 'string', 'max:100'],
-            'dni' => ['required', 'string', 'regex:/^[0-9{8}[A-Za-z]$/'],
+            'dni' => ['required', 'string', 'regex:/^[0-9]{8}[A-Za-z]$/'],
         ], 
         [
             'nombre.required' => 'El nombre es obligatorio.',
             'apellidos.required' => 'Los apellidos son obligatorios.',
-            'dni.regex' => 'El DNI debe tener 8 números y una letra (ej: 12345678Z',
+            'dni.regex' => 'El DNI debe tener 8 números y una letra (ej: 12345678Z)',
         ],
         [
             'nombre' => 'nombre',
