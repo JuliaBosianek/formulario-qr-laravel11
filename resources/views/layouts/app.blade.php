@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@yield('titulo', 'Formulario que genera código QR')</title>
+    <link rel="icon" href="data:,">
 </head>
 <body style="margin:0; padding:0; font-family:Arial, sans-serif; background-color:#234b72; color:#c1d3e5; line-height:1.5;">
     
