@@ -23,7 +23,7 @@
 
 {{-- ERRORES --}}
 @if ($errors->any())
-    <section id="resumen-errores" tabindex="-1" area-labelledby="titulo-errores" style="{{ $estiloSeccion }} border: 3px solid #ffb3c1;">
+    <section id="resumen-errores" tabindex="-1" aria-labelledby="titulo-errores" style="{{ $estiloSeccion }} border: 3px solid #ffb3c1;">
         <h2 id="titulo-errores" style="margin: 0 0 10px; font-size:1.5rem;">Revisa los errores</h2>
         <ul style="margin: 0 0 0 20px; padding:0;">
             @foreach ($errors->messages() as $campo => $mensajes)
@@ -34,7 +34,7 @@
  @endif
 
  {{-- FORMULARIO --}}
-    <section area-labelledby="titulo-formulario" style="{{ $estiloSeccion }}">
+    <section aria-labelledby="titulo-formulario" style="{{ $estiloSeccion }}">
         <h2 id="titulo-formulario" style="{{ $estiloH2 }}">Datos personales</h2>
 
         <form action="{{ route('qr.generar') }}" method="POST" id="formulario-qr" style="margin:0;">
@@ -84,7 +84,7 @@
 
 {{-- QR --}}
 @if ($datos)
-    <section id="resultado-qr" tabindex="-1" area-labelledby="titulo-resultado" style="{{ $estiloSeccion }}">
+    <section id="resultado-qr" tabindex="-1" aria-labelledby="titulo-resultado" style="{{ $estiloSeccion }}">
         <h2 id="titulo-resultado" style="{{ $estiloH2 }}">Código QR</h2> 
 
         {{-- aqui JS mete el QR en SVG --}}
@@ -108,5 +108,9 @@
     </section>
 @endif
 
+@endsection
+
+@section('scripts')
+    <script type="module" src="{{ asset('js/script.js') }}"></script>
 @endsection
 
