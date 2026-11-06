@@ -12,7 +12,7 @@ if(codigoQR) {
 
     const datos = [`Nombre: ${nombre}`,
                    `Apellidos: ${apellidos}`,
-                   `DNI: ${dni}`].join("\n");   //\n para que no aparezcan los espacios de la sangría
+                   `DNI/NIE: ${dni}`].join("\n");   //\n para que no aparezcan los espacios de la sangría
 
     try{
     // uso de la librería

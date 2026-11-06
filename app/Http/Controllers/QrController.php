@@ -18,20 +18,24 @@ class QrController extends Controller {
     public function generar(Request $request){
 
         $validados = $request->validate([
-            'nombre' => ['required', 'string', 'max:50'],
-            'apellidos' => ['required', 'string', 'max:100'],
-            'dni' => ['required', 'string', 'regex:/^[0-9]{8}[A-Za-z]$/'],
+            'nombre' => ['required', 'string', 'max:50', "regex:/^\pL[\pL\pM\s'.\/-]*$/u"],
+            'apellidos' => ['required', 'string', 'max:100', "regex:/^\pL[\pL\pM\s'.\/-]*$/u"],
+            'dni' => ['required', 'string', 'regex:/^([0-9]{8}|[XYZxyz][0-9]{7})[A-Za-z]$/'],
         ], 
         [
             'nombre.required' => 'El nombre es obligatorio.',
+            'nombre.regex' => 'El nombre solo puede contener letras espacios, guiones, apostrofos, puntos o barras.',
             'apellidos.required' => 'Los apellidos son obligatorios.',
-            'dni.required' => 'El DNI es obligatorio.',
-            'dni.regex' => 'El DNI debe tener 8 números y una letra (ej: 12345678Z)',
+            'apellidos.regex' => 'Los apellidos solo pueden contener letras espacios, guiones, apostrofos, puntos o barras.',
+            'dni.required' => 'El DNI o NIE es obligatorio.',
+            'dni.regex' => 'Introduce un DNI (8 números y una letra, ej.:12345678Z) o un NIE (X,Y o Z, 7 números y una letra, ej.: X1234567L).',
+            'max' => 'El campo :attribute no puede tener más de :max caracteres.',
+            'string' => 'El campo :attribute debe ser texto.',
         ],
         [
             'nombre' => 'nombre',
             'apellidos' => 'apellidos',
-            'dni' => 'DNI'
+            'dni' => 'DNI o NIE'
         ]
         );
 

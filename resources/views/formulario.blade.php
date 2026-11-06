@@ -66,11 +66,16 @@
                 @enderror
             </div>
 
-            {{-- DNI --}}
+            {{-- DNI o NIE--}}
             <div style="{{ $estiloCampo }}">
-                <label for="dni" style="{{ $estiloLabel }}">DNI <span aria-hidden="true" style="{{ $estiloAsterisco }}">*</span></label>
+                <label for="dni" style="{{ $estiloLabel }}">DNI o NIE<span aria-hidden="true" style="{{ $estiloAsterisco }}">*</span></label>
+                
+                {{-- Instrucción de formato visible (WCAG 3.3.2) --}}
+                <p id="ayuda-dni" style="margin:0 0 6px; font-size:0.9rem;">Ejemplos: 12345678Z (DNI) o X1234567L (NIE).</p>
+
                 <input type="text" name="dni" id="dni" value="{{ old('dni') }}" required aria-required="true"
-                        @error('dni') aria-invalid="true" aria-describedby="error-dni" @enderror
+                        aria-describedby="ayuda-dni @error('dni') error-dni @enderror"
+                        @error('dni') aria-invalid="true" @enderror
                         style="{{ $estiloInput }} @error('dni') {{ $bordeError }} @else {{ $bordeNormal }} @enderror">
                 @error('dni')
                     <p id="error-dni" style="{{ $estiloError }}">{{ $message }}</p>
@@ -102,7 +107,7 @@
             <p id="texto-datos">
                 Nombre: {{ $datos['nombre'] }}<br>
                 Apellidos: {{ $datos['apellidos'] }}<br>
-                DNI: {{ $datos['dni'] }}
+                DNI/NIE: {{ $datos['dni'] }}
             </p>
         </div>
     </section>
