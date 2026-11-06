@@ -25,6 +25,7 @@ class QrController extends Controller {
         [
             'nombre.required' => 'El nombre es obligatorio.',
             'apellidos.required' => 'Los apellidos son obligatorios.',
+            'dni.required' => 'El DNI es obligatorio.',
             'dni.regex' => 'El DNI debe tener 8 números y una letra (ej: 12345678Z)',
         ],
         [
